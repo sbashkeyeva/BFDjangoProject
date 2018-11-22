@@ -1,1 +1,2 @@
 # BFDjangoProject
+Our project about selling flowers. Why did we choose the online shop for  flowers? Because I love flowers, especially white roses.. haha it's just a joking. Okay, the brief description: there is amount of shops in our application, and customer can searchs appropriate flower by shops or by flowers. And save that flower in a basket. Then basket sums up the cost of folwers that he/she bought. That's how our project works! Thank you for your attention :)
