@@ -1,5 +1,2 @@
-from .citycb import *
-from .shopcb import *
-from .flowercb import *
-from .customercb import *
-from .shopFlowercb import *
+from .cbv import *
+from .authentication import register
