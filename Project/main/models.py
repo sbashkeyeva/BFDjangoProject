@@ -10,7 +10,7 @@ class City(models.Model):
 
 class Shop(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(blank=True, null=True)
+    # image = models.ImageField(blank=True, null=True)
     phone = models.IntegerField()
     description = models.CharField(max_length=1000)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
@@ -25,8 +25,8 @@ class Customer(models.Model):
     age = models.IntegerField()
     phone = models.IntegerField()
     email = models.EmailField()
-    shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    shop_id = models.ForeignKey(Shop, on_delete=models.CASCADE)
+    city_id = models.ForeignKey(City, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -35,7 +35,7 @@ class Customer(models.Model):
 class Flower(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
-    image = models.ImageField(blank=True, null=True)
+    #image = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -48,13 +48,13 @@ class ShopFlower(models.Model):
 
 
 class Order(models.Model):
-    customer=models.ForeignKey(Customer, on_delete=models.CASCADE)
-    date=models.DateTimeField()
-    shop=models.ForeignKey(Shop, on_delete=models.CASCADE)
+    customer_id=models.ForeignKey(Customer, on_delete=models.CASCADE)
+    date=models.DateTimeField(auto_now_add=True)
+    shop_id=models.ForeignKey(Shop, on_delete=models.CASCADE)
     sum=models.IntegerField()
 
 
 class OrderFlower(models.Model):
-    flower=models.ForeignKey(Flower, on_delete=models.CASCADE)
-    order=models.ForeignKey(Order, on_delete=models.CASCADE)
+    flower_id=models.ForeignKey(Flower, on_delete=models.CASCADE)
+    order_id=models.ForeignKey(Order, on_delete=models.CASCADE)
     count=models.IntegerField()

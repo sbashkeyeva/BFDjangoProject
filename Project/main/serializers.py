@@ -9,24 +9,6 @@ class CustomerModelSerilizer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class ShopModelSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Shop
-        fields = "__all__"
-
-
-class ShopFlowerModelSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ShopFlower
-        fields = "__all__"
-
-
-class FlowerModelSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Flower
-        fields = "__all__"
-
-
 class CityModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = City
@@ -39,4 +21,23 @@ class UserModelSerializer(serializers.ModelSerializer):
         fields = ("username", "password",)
 
 
+class ShopModelSerializer(serializers.ModelSerializer):
+    city = CityModelSerializer(read_only=True)
+
+    class Meta:
+        model = Shop
+        fields = "__all__"
+
+
+class FlowerModelSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Flower
+        fields =['name','description']
+
+
+class ShopFlowerModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShopFlower
+        fields = "__all__"
 

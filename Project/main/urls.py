@@ -13,10 +13,10 @@ urlpatterns = [
     path('customer/detail/<int:pk>/', views.CustomerDetail.as_view()),
     path('flower/list/', views.FlowerList.as_view()),
     path('flower/detail/<int:pk>/', views.FlowerDetail.as_view()),
-    path('city/list/', views.ShopList.as_view()),
-    path('city/detail/<int:pk>/', views.ShopDetail.as_view()),
-    path('city/list/', views.ShopFlowerList.as_view()),
-    path('city/detail/<int:pk>/', views.ShopFlowerDetail.as_view()),
+    path('shop/list/', views.ShopList.as_view()),
+    path('shop/detail/<int:pk>/', views.ShopDetail.as_view()),
+    path('shop/flower/list/', views.ShopFlowerList.as_view()),
+    path('shop/flower/detail/<int:pk>/', views.ShopFlowerDetail.as_view()),
 
 ]
 

@@ -151,9 +151,11 @@ class ShopList(APIView):
         return Response(serializer.data)
 
     def post(self, request):
+        city_id = request.data.get("city_id")
+        city = City.objects.get(id = city_id)
         serializer = ShopModelSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(city = city)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
